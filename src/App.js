@@ -1,24 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/Pages/Main/Home';
+import AuthProvider from './Context/AuthProvider';
+import Header from './components/Common/Header/Header';
+import Login from './components/Login/Login';
+import MyOrders from './Admin/MyOrders';
+import ManageOrders from './Admin/ManageOrders';
+import AddNew from './Admin/AddNew';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <Router>
+        <Header/>
+        <Switch>
+          <Route exact path="/">
+              <Home></Home>
+          </Route>
+          <Route  path="/home">
+              <Home></Home>
+          </Route>
+          <Route  path="/login">
+              <Login></Login>
+          </Route>
+          <Route  path="/orders">
+              <MyOrders></MyOrders>
+          </Route>
+          <Route  path="/manageorder">
+              <ManageOrders></ManageOrders>
+          </Route>
+          <Route  path="/addnew">
+              <AddNew></AddNew>
+          </Route>
+        </Switch>
+      </Router>
+    </AuthProvider>
+      
   );
 }
 
