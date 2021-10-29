@@ -1,10 +1,15 @@
 import React from 'react';
-import Header from '../../Common/Header/Header'
+import Banner from '../Home/Banner/Banner';
+import Honeys from '../Home/HoneyTours/Honeys';
+import Offers from '../Home/Offers/Offers';
+import './Home.css'
 
 const Home = () => {
     return (
         <div>
-            <h2>This is Home</h2>
+            <Banner></Banner>
+            <Offers></Offers>
+            <Honeys></Honeys>
         </div>
     );
 };
