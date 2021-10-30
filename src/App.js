@@ -1,76 +1,77 @@
-import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './components/Pages/Main/Home';
-import AuthProvider from './Context/AuthProvider';
-import Header from './components/Common/Header/Header';
-import Login from './components/Login/Login';
-import MyOrders from './Admin/MyOrders';
-import ManageOrders from './Admin/ManageOrders';
-import AddNew from './Admin/AddNew';
-import OfferAdd from './Admin/OfferAdd/OfferAdd';
-import HoneyAdd from './Admin/HoneyAdd/HoneyAdd';
-import HoneyDetails from './components/Pages/Details/HoneyDetails/HoneyDetails';
-import OfferDetails from './components/Pages/Details/OfferDetails/OfferDetails';
-import UpdateOrders from './Admin/UpdateOrders';
-import Footer from './components/Common/Footer/Footer';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import UpdateStatus from './Admin/UpdateStatus';
-import Honeys from './components/Pages/Home/HoneyTours/Honeys';
-import Offers from './components/Pages/Home/Offers/Offers';
-import PopularTours from './components/Pages/Home/PopularTours/PopularTours';
-import PopularDetails from './components/Pages/Details/PopularDetails/PopularDetails';
-import PopularAdd from './Admin/PopularAdd/PopularAdd';
+import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Pages/Main/Home";
+import AuthProvider from "./Context/AuthProvider";
+import Header from "./components/Common/Header/Header";
+import Login from "./components/Login/Login";
+import MyOrders from "./Admin/MyOrders";
+import ManageOrders from "./Admin/ManageOrders";
+import AddNew from "./Admin/AddNew";
+import OfferAdd from "./Admin/OfferAdd/OfferAdd";
+import HoneyAdd from "./Admin/HoneyAdd/HoneyAdd";
+import HoneyDetails from "./components/Pages/Details/HoneyDetails/HoneyDetails";
+import OfferDetails from "./components/Pages/Details/OfferDetails/OfferDetails";
+import UpdateOrders from "./Admin/UpdateOrders";
+import Footer from "./components/Common/Footer/Footer";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import UpdateStatus from "./Admin/UpdateStatus";
+import Honeys from "./components/Pages/Home/HoneyTours/Honeys";
+import Offers from "./components/Pages/Home/Offers/Offers";
+import PopularTours from "./components/Pages/Home/PopularTours/PopularTours";
+import PopularDetails from "./components/Pages/Details/PopularDetails/PopularDetails";
+import PopularAdd from "./Admin/PopularAdd/PopularAdd";
+import NotFound from "./NotFound/NotFound";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <Header/>
+        <Header />
         <Switch>
           <Route exact path="/">
-              <Home></Home>
+            <Home></Home>
           </Route>
-          <Route  path="/home">
-              <Home></Home>
+          <Route path="/home">
+            <Home></Home>
           </Route>
-          <Route  path="/login">
-              <Login></Login>
+          <Route path="/login">
+            <Login></Login>
           </Route>
-          <Route exact  path="/offers">
-              <Offers></Offers>
+          <Route exact path="/offers">
+            <Offers></Offers>
           </Route>
-          <PrivateRoute  path="/honeytours">
+          <PrivateRoute path="/honeytours">
             <Honeys></Honeys>
           </PrivateRoute>
-          <PrivateRoute  path="/populartours">
+          <PrivateRoute path="/populartours">
             <PopularTours></PopularTours>
           </PrivateRoute>
-          <PrivateRoute  path="/orders">
-              <MyOrders></MyOrders>
+          <PrivateRoute path="/orders">
+            <MyOrders></MyOrders>
           </PrivateRoute>
-          <PrivateRoute  path="/manageorder">
-              <ManageOrders></ManageOrders>
+          <PrivateRoute path="/manageorder">
+            <ManageOrders></ManageOrders>
           </PrivateRoute>
-          <PrivateRoute  path="/addnew">
-              <AddNew></AddNew>
+          <PrivateRoute path="/addnew">
+            <AddNew></AddNew>
           </PrivateRoute>
-          <PrivateRoute  path="/offeradd">
-              <OfferAdd></OfferAdd>
+          <PrivateRoute path="/offeradd">
+            <OfferAdd></OfferAdd>
           </PrivateRoute>
-          <PrivateRoute  path="/honeyadd">
-              <HoneyAdd></HoneyAdd>
+          <PrivateRoute path="/honeyadd">
+            <HoneyAdd></HoneyAdd>
           </PrivateRoute>
-          <PrivateRoute  path="/popularAdd">
-              <PopularAdd></PopularAdd>
+          <PrivateRoute path="/popularAdd">
+            <PopularAdd></PopularAdd>
           </PrivateRoute>
-          <PrivateRoute  path="/honey/:honeyId">
-              <HoneyDetails></HoneyDetails>
+          <PrivateRoute path="/honey/:honeyId">
+            <HoneyDetails></HoneyDetails>
           </PrivateRoute>
-          <PrivateRoute  path="/popular/:popularId">
-              <PopularDetails></PopularDetails>
+          <PrivateRoute path="/popular/:popularId">
+            <PopularDetails></PopularDetails>
           </PrivateRoute>
           <PrivateRoute exact path="/offers/:offerId">
-              <OfferDetails></OfferDetails>
+            <OfferDetails></OfferDetails>
           </PrivateRoute>
           <PrivateRoute exact path="/update/:orderId">
             <UpdateOrders></UpdateOrders>
@@ -78,11 +79,13 @@ function App() {
           <PrivateRoute exact path="/status/:orderId">
             <UpdateStatus></UpdateStatus>
           </PrivateRoute>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
     </AuthProvider>
-      
   );
 }
 
