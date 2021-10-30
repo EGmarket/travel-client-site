@@ -35,11 +35,7 @@ const ManageOrders = () => {
       console.log(id);
     }
     }
-    
 
- 
-  
- 
   return (
     <div className="offer-container shadow-lg">
       <div className="container">
@@ -49,21 +45,15 @@ const ManageOrders = () => {
         <div className="offers">
           {
             manageOrders.map(order => <div key={order._id}>
-              <Row>
-              <Col>
-                <Card className="mx-2 d-flex shadow service w-25">
+                <div className="row mb-3 mt-3">
+                  <div className="col-md-12">
+                  <Card className="mx-2 shadow service w-25">
                   <Card.Img variant="top" src={order.img} />
                   <Card.Body>
                     <Card.Title>{order.name}</Card.Title>
                     <Card.Title>{order.price}</Card.Title>
-                    {/* <Card.Text>
-                  {description}
-                </Card.Text> */}
                   </Card.Body>
                   <Card.Footer>
-                    {/* <Link to={`/honey/${_id}`}>
-                    <Button className="mx-5 btn-lg">Details</Button>
-                  </Link> */}
 
                     <button
                       onClick={() => handleDeleteOrder(order._id)}
@@ -78,12 +68,16 @@ const ManageOrders = () => {
                     <Link to={`/status/${order._id}`}>
                     <button className="btn btn-info"> Status </button>
                     </Link>
-                                                                                                                                                                                 
+                                   
                   </Card.Footer>
                 </Card>
-              </Col>
+                  </div>
+                
+                </div>
+                
+              
               <ToastContainer autoClose={2000}/>
-            </Row>
+           
 
             </div>)
           }

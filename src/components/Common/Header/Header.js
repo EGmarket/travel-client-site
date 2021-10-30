@@ -11,20 +11,29 @@ const Header = () => {
       <Navbar className="container">
         <Container>
           <Link to="/">
-            <img height="80px" className="mx-5" src="https://i.imgur.com/AIU5xtS.png" alt="" srcset="" />
+            <img
+              height="80px"
+              className="mx-5 nav-item"
+              src="https://i.imgur.com/AIU5xtS.png"
+              alt=""
+              srcset=""
+            />
           </Link>
           <Navbar.Toggle />
-          <Navbar.Collapse className="justify-content-end">
-            <NavLink to="/offers" className="nav-route">
-              Offers
-            </NavLink>
-  
-            <NavLink to="/populartours" className="nav-route">
-              Popular Tours
-            </NavLink>
-            <NavLink to="/honeytours" className="nav-route">
-              Honey Tours
-            </NavLink>
+          <Navbar.Collapse className="justify-content-end nav-item">
+            <div>
+              <NavLink to="/offers" className="nav-route">
+                Offers
+              </NavLink>
+
+              <NavLink to="/populartours" className="nav-route">
+                Popular Tours
+              </NavLink>
+              <NavLink to="/honeytours" className="nav-route">
+                Honey Tours
+              </NavLink>
+            </div>
+
             <NavLink to="/login" className="nav-route">
               {!user?.email && <h2>Login</h2>}
             </NavLink>
@@ -36,21 +45,23 @@ const Header = () => {
               )}
               {user?.email && (
                 <div>
-                  <button className="btn btn-danger shadow" onClick={logout}>Logout</button>
+                  <button className="btn btn-danger mb-2 shadow" onClick={logout}>
+                    Logout
+                  </button>
 
                   <NavLink to="/orders" className="nav-route">
-                  <button className="btn btn-primary shadow">My Orders</button>
+                    <button className="btn btn-primary shadow mb-2">
+                      My Orders
+                    </button>
                   </NavLink>
                   <NavLink to="/manageorder" className="nav-route">
-                  <button className="btn btn-primary shadow">Manage Orders</button>
+                    <button className="btn btn-primary shadow mb-2">
+                      Manage Orders
+                    </button>
                   </NavLink>
                   <NavLink to="/addnew" className="nav-route">
-                  <button className="btn btn-info shadow">Add New</button>
+                    <button className="btn btn-info shadow mb-2">Add New</button>
                   </NavLink>
-
-                  
-                  
-                  
                 </div>
               )}
             </Navbar.Text>

@@ -22,7 +22,7 @@ const BannerTwo = () => {
               </div>
             </div>
             <div className="col-md-6">
-              <img src={offer.img3} alt="" srcset="" />
+              <img className="img-fluid" src={offer.img3} alt="" srcset="" />
             </div>
           </div>
         </div>

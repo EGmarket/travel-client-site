@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAuth from "../hooks/useAuth";
+import '../components/Pages/Main/Home.css';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -26,8 +27,8 @@ const MyOrders = () => {
         {orders.map((order) => (
           <div key={order._id}>
             <div className="bg-light d-flex justify-content-between mb-3">
-              <img height="300px" src={order.img} alt="" srcset="" />
-              <div className="mt-5 ">
+              <img className="img-fluid admin-btn" height="300px" src={order.img} alt="" srcset="" />
+              <div className="mt-5">
               <h2>{order.name}</h2>
               <h3>price: ${order.price}</h3>
               </div>

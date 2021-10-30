@@ -44,7 +44,7 @@ const OfferDetails = () => {
         <div className="container">
         <div className="row">
             <div className="col-md-6 mt-5">
-                <img height="300px" src={details?.img} alt="" srcset="" />
+                <img className="img-fluid" height="300px" src={details?.img} alt="" srcset="" />
             </div>
             <div className="col-md-6 mt-5">
                 <h2>Name Of Service: {details?.name}</h2>
