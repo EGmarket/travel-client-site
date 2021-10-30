@@ -1,8 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import "../Form.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HoneyAdd = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -18,7 +19,7 @@ const HoneyAdd = () => {
       })
       .then((res) => {
         if (res.data.insertedId) {
-          alert("added successfully");
+          toast.success("Honey added Successfully")
           reset();
         }
       });
@@ -43,10 +44,11 @@ const HoneyAdd = () => {
           {...register("duration", { required: true, maxLength: 20 })}
           placeholder="duration"
         />
-        <select {...register("status")}>
-          <option value="pending">pending</option>
-          <option value="aproved">Aproved</option>
-        </select>
+        <input
+            defaultValue="pending"
+          {...register("status", { required: true, maxLength: 20 })}
+          placeholder="status"
+        />
         <input
           {...register("category", { required: true, maxLength: 20 })}
           placeholder="Category"
@@ -56,6 +58,7 @@ const HoneyAdd = () => {
         <input {...register("img")} placeholder="image url" />
         <input type="submit" />
       </form>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 };

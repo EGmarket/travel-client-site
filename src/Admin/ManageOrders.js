@@ -3,47 +3,41 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Card, Button, Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageOrders = () => {
   const [manageOrders, setManageOrders] = useState([]);
-  const [statusCodes, setstatusCodes] = useState([]);
   const [isDeleted, setIsDeleted] = useState(null);
   useEffect(() => {
     fetch("https://boiling-lake-81029.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setManageOrders(data));
-  }, [isDeleted]);
+  }, [manageOrders,isDeleted]);
 
   // Deleting Orders
   const handleDeleteOrder = id => {
-    fetch(`https://boiling-lake-81029.herokuapp.com/deleteOrder/${id}`, {
-      method: "DELETE",
-      headers: {"content-type" : "application/json"}
-    })
-    .then(res => res.json())
-    .then(result => {
-      if(result.deletedCount){
-        setIsDeleted(true)
-        alert("Success")
-      } else {
-        setIsDeleted(false)
-      }
-    });
-    console.log(id);
-  }
+    const proceed = window.confirm("Are You Sure ?")
+    if(proceed){
+      fetch(`https://boiling-lake-81029.herokuapp.com/deleteOrder/${id}`, {
+        method: "DELETE",
+        headers: {"content-type" : "application/json"}
+      })
+      .then(res => res.json())
+      .then(result => {
+        if(result.deletedCount){
+          setIsDeleted(true)
+          toast.success(" Deleted Successfully");
+        } else {
+          setIsDeleted(false)
+        }
+      });
+      console.log(id);
+    }
+    }
+    
 
-  // Handle Status
-
-  const handleStatus = code => {
-    fetch(`https://boiling-lake-81029.herokuapp.com/orders/${code}`,{
-      method: "PUT",
-      headers: {"content-type" : "application/json"},
-
-    })
-    .then(res => res.json())
-    .then(data => setstatusCodes(data))
-  }
-
+ 
   
  
   return (
@@ -88,6 +82,7 @@ const ManageOrders = () => {
                   </Card.Footer>
                 </Card>
               </Col>
+              <ToastContainer autoClose={2000}/>
             </Row>
 
             </div>)

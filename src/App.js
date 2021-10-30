@@ -9,7 +9,6 @@ import ManageOrders from './Admin/ManageOrders';
 import AddNew from './Admin/AddNew';
 import OfferAdd from './Admin/OfferAdd/OfferAdd';
 import HoneyAdd from './Admin/HoneyAdd/HoneyAdd';
-import ServiceDetails from './components/Pages/Details/ServiceDetails';
 import HoneyDetails from './components/Pages/Details/HoneyDetails/HoneyDetails';
 import OfferDetails from './components/Pages/Details/OfferDetails/OfferDetails';
 import UpdateOrders from './Admin/UpdateOrders';

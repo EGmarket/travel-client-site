@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import "../Form.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PopularAdd = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -17,7 +19,7 @@ const PopularAdd = () => {
       })
       .then((res) => {
         if (res.data.insertedId) {
-          alert("added successfully");
+          toast.success(" added Successfully");
           reset();
         }
       });
@@ -55,6 +57,7 @@ const PopularAdd = () => {
         <input {...register("img")} placeholder="image url" />
         <input type="submit" />
       </form>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 };

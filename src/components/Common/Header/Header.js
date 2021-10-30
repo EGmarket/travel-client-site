@@ -11,16 +11,14 @@ const Header = () => {
       <Navbar className="container">
         <Container>
           <Link to="/">
-            <h2>TRAVEL</h2>
+            <img height="80px" className="mx-5" src="https://i.imgur.com/AIU5xtS.png" alt="" srcset="" />
           </Link>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <NavLink to="/offers" className="nav-route">
               Offers
             </NavLink>
-            <NavLink to="/toptours" className="nav-route">
-              Top Tours
-            </NavLink>
+  
             <NavLink to="/populartours" className="nav-route">
               Popular Tours
             </NavLink>

@@ -5,21 +5,28 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <div>
-      <div className="container mt-5 bg-info">
+      <div className="container mt-5 bg-dark">
         <div className="row">
           <div className="col-md-4 ">
-            <h1>EG TRAVEL</h1>
-            <h5 className="mx-5">Home: 20/1 Borobag,Mirpur-2</h5>
+            <img  height="150px" className="mt-5 mx-5 shadow" src="https://i.imgur.com/AIU5xtS.png" alt="" srcset="" />
+            <h5 className="mx-5 text-white">Home: 20/1 Borobag,Mirpur-2</h5>
+            <h5 className="mx-5 text-white">Mobile: 01319917359</h5>
           </div>
           <div className="col-md-4 mt-5 text-center fs-3 ">
-            <NavLink to="/services" className="nav-route foo-logo">
-              Services
+            <NavLink to="/" className="nav-route foo-logo text-white">
+              Home
             </NavLink>
-            <NavLink to="/booking" className="nav-route">
-              Booking
+            <NavLink to="/offers" className="nav-route foo-logo text-white">
+              Offer
             </NavLink>
-            <NavLink to="/teams" className="nav-route">
-              Team
+            <NavLink to="/populartours" className="nav-route text-white">
+              Popular
+            </NavLink>
+            <NavLink to="/honeytours" className="nav-route text-white">
+              Honey
+            </NavLink>
+            <NavLink to="/toptours" className="nav-route text-white">
+              Tops
             </NavLink>
           </div>
           <div className="col-md-4 mt-4 text-center">

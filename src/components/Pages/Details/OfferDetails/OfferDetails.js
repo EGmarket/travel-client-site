@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import useAuth from '../../../../hooks/useAuth';
 
 const OfferDetails = () => {
@@ -35,7 +36,7 @@ const OfferDetails = () => {
             body: JSON.stringify(booking)
         })
         if(booking){
-            alert("Booking Succes")
+            toast.success(" Booked Successfully");
         }
     }
 
@@ -54,6 +55,7 @@ const OfferDetails = () => {
                 <Button onClick={ handleAddToCart} className="btn btn-danger">BOOK NOW</Button>
             </div>
         </div>
+        <ToastContainer autoClose={2000}/>
         </div>
     );
 };

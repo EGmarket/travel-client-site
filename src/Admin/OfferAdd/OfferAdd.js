@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import '../Form.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const OfferAdd = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -16,7 +18,7 @@ const OfferAdd = () => {
         })
             .then(res => {
                 if (res.data.insertedId) {
-                    alert('added successfully');
+                    toast.success("Offer added Successfully")
                     reset();
                 }
             })
@@ -35,6 +37,7 @@ const OfferAdd = () => {
                 <input {...register("img")} placeholder="image url" />
                 <input type="submit" />
             </form>
+            <ToastContainer autoClose={2000}/>
         </div>
     );
 };

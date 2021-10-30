@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const UpdateOrders = () => {
-  const { register, handleSubmit ,reset , formState: { errors } } = useForm();
+  const { register, handleSubmit , formState: { errors } } = useForm();
   const { orderId } = useParams();
-  const [isUpdate, setIsUpdated] = useState(null);
+  // const [isUpdate, setIsUpdated] = useState(null);
   const [singleorder, setSingleOrder] = useState([]);
 
   useEffect(() => {
     fetch(`https://boiling-lake-81029.herokuapp.com/singleOrder/${orderId}`)
       .then((res) => res.json())
       .then((data) => setSingleOrder(data));
-  }, [orderId , isUpdate]);
+  }, [orderId]);
 
   const onSubmit = data => {
     fetch(`https://boiling-lake-81029.herokuapp.com/update/${orderId}`,{
@@ -25,14 +27,12 @@ const UpdateOrders = () => {
     .then(res => res.json())
     .then(result => {
       if (result.modifiedCount) {
-        setIsUpdated(true);
+        toast.success("order Updated")
       } else {
-        setIsUpdated(false);
+        console.log("Failed");
       }
     })
-    reset('', {
-      keepValues: true,
-  })
+   
 }
 
   return (
@@ -42,7 +42,7 @@ const UpdateOrders = () => {
        
         <input
             defaultValue={singleorder?.email}
-          {...register("email", { required: false, maxLength: 20 })}
+          {...register("email", { shouldUnregister: false, maxLength: 20 })}
           placeholder="email"
         />
         <input
@@ -75,6 +75,7 @@ const UpdateOrders = () => {
         <input defaultValue={singleorder?.img} {...register("img",{required: true})} placeholder="image url" />
         <input type="submit" />
       </form>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 };

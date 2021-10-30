@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateStatus = () => {
   const { register, handleSubmit } = useForm();
   const { orderId } = useParams();
   const [singleorder, setSingleOrder] = useState([]);
+
   useEffect(() => {
     fetch(`https://boiling-lake-81029.herokuapp.com/singleOrder/${orderId}`)
       .then((res) => res.json())
@@ -21,7 +24,11 @@ const UpdateStatus = () => {
       body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(result => console.log(result))
+    .then(result => {
+      if(result){
+        toast.success("Status Changed")
+      }
+    })
 
 }
 
@@ -32,15 +39,17 @@ const UpdateStatus = () => {
        <label htmlFor="email">User Email</label>
         <input
             defaultValue={singleorder?.email}
-          {...register("email", { required: true,  maxLength: 20 })}
+          {...register("email", {  maxLength: 20 })}
           placeholder="Name"
         />
-         <select {...register("status")}>
-        <option value="pending">pending</option>
-        <option value="approved">approved</option>
-      </select>
+          <input
+            defaultValue={singleorder?.status}
+          {...register("status", { required: true, maxLength: 20 })}
+          placeholder="status"
+        />
       <input type="submit" />
       </form>
+      <ToastContainer autoClose={2000}/>
     </div>
 
 

@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
 
 const Banner = () => {
+  const [offers, setOffers] = useState([]);
+  useEffect(() => {
+    fetch("https://boiling-lake-81029.herokuapp.com/banner")
+      .then((res) => res.json())
+      .then((data) => setOffers(data));
+  }, [])
   return (
     <div>
-      <Carousel>
+      {
+        offers.map(offer => <div>
+           <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://i.imgur.com/awQAVLz.jpg"
+            src={offer.img1}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -19,7 +27,7 @@ const Banner = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://icms-image.slatic.net/images/ims-web/82e2bcbb-f1af-436a-a954-9253128df5cf.jpg"
+            src={offer.img}
             alt="Second slide"
           />
 
@@ -31,7 +39,7 @@ const Banner = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://icms-image.slatic.net/images/ims-web/38032a36-7bac-4512-8542-968d66226ac7.jpg"
+            src={offer.img2}
             alt="Third slide"
           />
 
@@ -43,6 +51,9 @@ const Banner = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+        </div>)
+      }
+     
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import useAuth from '../../../../hooks/useAuth';
 
 const PopularDetails = () => {
@@ -30,7 +32,7 @@ const PopularDetails = () => {
             body: JSON.stringify(booking)
         })
         if(booking){
-            alert("Booking Succes")
+            toast.success(" Booked Successfully");
         }
     }
 
@@ -53,6 +55,7 @@ const PopularDetails = () => {
                 </div>
             </div>
             </div>
+            <ToastContainer autoClose={2000}/>
         </div>
     );
 };
