@@ -3,7 +3,7 @@ import { Card, Col,Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Offer = (props) => {
-    const {name, price, description , img , _id} = props.offer;
+    const {name, price, duration , img , _id} = props.offer;
     return (
         <div>
              <Col className="mt-5 mb-5">
@@ -11,7 +11,7 @@ const Offer = (props) => {
               <Card.Img variant="top" height="200px" src={img} />
               <Card.Body>
                 <Card.Title>{name}</Card.Title>
-                <Card.Title>{price}</Card.Title>
+                <Card.Title>price: ${price} || <small className="text-info">{duration}</small></Card.Title>
                 {/* <Card.Text>
                   {description}
                 </Card.Text> */}

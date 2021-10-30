@@ -48,9 +48,10 @@ const OfferDetails = () => {
             </div>
             <div className="col-md-6 mt-5">
                 <h2>Name Of Service: {details?.name}</h2>
-                <h3>ServiceFee: {details?.price}</h3>
+                <h3>ServiceFee: $ {details?.price}</h3>
                 <h4>TimePreiod: {details?.duration}</h4>
-                <p>{details?.desc}</p>
+                <h4>Country: {details?.country} || City: {details?.city}</h4>
+                <p>{details?.description}</p>
                 
                 <Button onClick={ handleAddToCart} className="btn btn-danger">BOOK NOW</Button>
             </div>

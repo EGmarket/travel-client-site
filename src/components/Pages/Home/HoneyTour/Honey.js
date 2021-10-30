@@ -3,7 +3,7 @@ import { Card, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Honey = (props) => {
-  const { name, price, description, img, _id } = props.honey;
+  const { name, price, duration, img, _id } = props.honey;
   return (
     <div>
       <div className="d-flex justify-content-center">
@@ -12,10 +12,8 @@ const Honey = (props) => {
             <Card.Img variant="top" height="200px" src={img} />
             <Card.Body>
               <Card.Title>{name}</Card.Title>
-              <Card.Title>{price}</Card.Title>
-              {/* <Card.Text>
-                  {description}
-                </Card.Text> */}
+              <Card.Title>price: ${price} || <small className="text-info">{duration}</small></Card.Title>
+              
             </Card.Body>
             <Card.Footer>
               <Link to={`/honey/${_id}`}>
