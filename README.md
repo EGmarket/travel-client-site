@@ -1,8 +1,25 @@
-# Getting Started with Create React App
+# egTravels Is Best Choice
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You Can Visit us  [egTravels](https://egtravels.web.app/).
+
+--------------------------------------------------------------------------------------------------
+# Only Shipping Form is missing from given requirements otherwise all task has been completed 
+--------------------------------------------------------------------------------------------------
 
 ## Available Scripts
+* APPS DATA HAS BEEN STORED IN Live Server
+* We  Used Fontawesome icon in this project  and toastify for alret message
+* This Site is done with mongodb and Heroku
+* This site is responsive only for mobile divices and pc
+* egTravels is fully Authenticated by firebase
+* and much work has been done
+*  We  used react hook form in next update
+          
+                   * We are regularly updating
+                   * ENV file for protecting data
+                   * This site will be more Optimized very soon
+                   * Shipping for did not done it will next
+                   
 
 In the project directory, you can run:
 
