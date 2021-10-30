@@ -18,7 +18,7 @@ const Honeys = () => {
   <div className="container">
     <div className="offers">
       <Row xs={1} md={4} lg={4}>
-        {honeys.slice(0, 4).map((honey) => (
+        {honeys.slice(0, 8).map((honey) => (
           <Honey key={honey._id} honey={honey}></Honey>
         ))}
 

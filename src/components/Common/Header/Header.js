@@ -38,16 +38,16 @@ const Header = () => {
               )}
               {user?.email && (
                 <div>
-                  <button onClick={logout}>Logout</button>
+                  <button className="btn btn-danger shadow" onClick={logout}>Logout</button>
 
                   <NavLink to="/orders" className="nav-route">
-                  <button>My Orders</button>
+                  <button className="btn btn-primary shadow">My Orders</button>
                   </NavLink>
                   <NavLink to="/manageorder" className="nav-route">
-                  <button>Manage Orders</button>
+                  <button className="btn btn-primary shadow">Manage Orders</button>
                   </NavLink>
                   <NavLink to="/addnew" className="nav-route">
-                  <button>Add New</button>
+                  <button className="btn btn-info shadow">Add New</button>
                   </NavLink>
 
                   

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Col,Button } from 'react-bootstrap';
+import { Card, Col , Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Offer = (props) => {
-    const {name, price, description , img , _id} = props.offer;
+const PopularTour = (props) => {
+    const {name, price, description , img , _id} = props.popular;
     return (
         <div>
              <Col className="mt-5 mb-5">
@@ -17,7 +17,7 @@ const Offer = (props) => {
                 </Card.Text> */}
               </Card.Body>
               <Card.Footer>
-                <Link to={`/offers/${_id}`}>
+                <Link to={`/popular/${_id}`}>
                   <Button className="mx-5 btn-lg">Details</Button>
                 </Link>
                 
@@ -28,4 +28,4 @@ const Offer = (props) => {
     );
 };
 
-export default Offer;
+export default PopularTour;

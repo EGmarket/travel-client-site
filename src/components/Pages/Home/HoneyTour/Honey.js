@@ -8,8 +8,8 @@ const Honey = (props) => {
     <div>
       <div className="d-flex justify-content-center">
         <Col className="mt-5 mb-5">
-          <Card className="mx-2 shadow service">
-            <Card.Img variant="top" src={img} />
+          <Card className="mx-2 shadow service" style={{ width: '18rem', height: '100%' }}>
+            <Card.Img variant="top" height="200px" src={img} />
             <Card.Body>
               <Card.Title>{name}</Card.Title>
               <Card.Title>{price}</Card.Title>
@@ -18,7 +18,7 @@ const Honey = (props) => {
                 </Card.Text> */}
             </Card.Body>
             <Card.Footer>
-              <Link to={`/service/${_id}`}>
+              <Link to={`/honey/${_id}`}>
                 <Button className="mx-5 btn-lg">Details</Button>
               </Link>
             </Card.Footer>

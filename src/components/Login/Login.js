@@ -23,8 +23,11 @@ const Login = () => {
     }
 
     return (
-        <div>
-            <button onClick={handleGoogleLogin}>Google Login</button>
+        <div className="container mt-5  p-5 bg-light text-center">
+            <div>
+            <button className="btn btn-info" onClick={handleGoogleLogin}>Google Login</button>
+            </div>
+            
         </div>
     );
 };

@@ -20,7 +20,7 @@ const Offers = () => {
       <div className="container">
         <div className="offers">
           <Row xs={1} md={4} lg={4}>
-            {offers.slice(0, 4).map((offer) => (
+            {offers.map((offer) => (
               <Offer key={offer._id} offer={offer}></Offer>
             ))}
           </Row> 
