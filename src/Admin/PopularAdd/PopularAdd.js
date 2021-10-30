@@ -25,8 +25,8 @@ const PopularAdd = () => {
       });
   };
   return (
-    <div className="container add-service">
-      <h2>Please Add a Service</h2>
+    <div className="container add-service text-center">
+      <h2 className="mt-5 mb-3 text-primary fs-2">Please Add a Popular  Service</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("name", { required: true, maxLength: 20 })}
@@ -44,10 +44,11 @@ const PopularAdd = () => {
           {...register("duration", { required: true, maxLength: 20 })}
           placeholder="duration"
         />
-        <select {...register("status")}>
-          <option value="pending">pending</option>
-          <option value="aproved">Aproved</option>
-        </select>
+        <input
+            defaultValue="pending"
+          {...register("status", { required: true, maxLength: 20 })}
+          placeholder="status"
+        />
         <input
           {...register("category", { required: true, maxLength: 20 })}
           placeholder="Category"
@@ -55,7 +56,7 @@ const PopularAdd = () => {
         <textarea {...register("description")} placeholder="Description" />
         <input type="number" {...register("price")} placeholder="price" />
         <input {...register("img")} placeholder="image url" />
-        <input type="submit" />
+        <input className="bg-primary text-white" type="submit" />
       </form>
       <ToastContainer autoClose={2000}/>
     </div>

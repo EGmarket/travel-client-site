@@ -25,8 +25,8 @@ const HoneyAdd = () => {
       });
   };
   return (
-    <div className="container add-service">
-      <h2>Please Add a Service</h2>
+    <div className="container add-service text-center">
+      <h2 className="mt-5 mb-3 text-primary fs-2">Please Add a Honeymoon  Service</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("name", { required: true, maxLength: 20 })}
@@ -56,7 +56,7 @@ const HoneyAdd = () => {
         <textarea {...register("description")} placeholder="Description" />
         <input type="number" {...register("price")} placeholder="price" />
         <input {...register("img")} placeholder="image url" />
-        <input type="submit" />
+        <input className="bg-primary text-white" type="submit" />
       </form>
       <ToastContainer autoClose={2000}/>
     </div>
